@@ -1,0 +1,27 @@
+galaxy_info:
+  role_name: manage_packages
+  author: Javier Collado
+  description: Install or Remove system packages
+  company: javicollado.com
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Fedora
+    versions:
+    - all
+
+  galaxy_tags:
+  - update
+  - system
+  - packaging
+  - yum
+  - dnf
+
+dependencies: []
+  

@@ -1,0 +1,20 @@
+---
+- name: Manage system packages with yum
+  become: yes
+  yum:
+    name: "{{ item.name }}"
+    state: "{{ item.status | default(latest) }}"
+  loop: "{{ packages }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: ansible_facts['pkg_mgr'] == 'yum'
+  
+- name: Manage system packages with dnf
+  become: yes
+  dnf:
+    name: "{{ item.name }}"
+    state: "{{ item.status | default(latest) }}"
+  loop: "{{ packages }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when: ansible_facts['pkg_mgr'] == 'dnf'
